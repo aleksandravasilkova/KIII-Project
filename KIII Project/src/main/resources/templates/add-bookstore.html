@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add bookstore</title>
+</head>
+<body>
+<header>
+  <h1>Add bookstore</h1>
+</header>
+<main>
+
+  <form th:action="@{/bookstores/add}" th:method="POST">
+    <div>
+      Name: <input name="name"><br><br>
+      City: <input name="city"><br><br>
+      Address: <input name="address"><br><br>
+      <br>
+      <input type="submit" value="Add new Book store">
+    </div>
+  </form>
+
+
+
+
+</main>
+</body>
+</html>

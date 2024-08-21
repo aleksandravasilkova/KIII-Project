@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Books Homepage - Welcome to My Book Store</title>
+  <style type="text/css">
+    body {
+      width: 800px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Welcome to My Book Store</h1>
+</header>
+<main>
+  <h2>Choose book:</h2>
+  <form method="get" th:action="'/author/authors'">
+    <ul th:each="book : ${books}">
+      <li>
+        <input type="radio" name="selectedBook" th:value="${book.getIsbn()}" th:text="'Title: ' + ${book.getTitle()} + ', Genre: ' + ${book.getGenre()} + ', Year: ' + ${book.getYear()} + ',Store' + ${book.getBookStore()}">
+        <a th:href="'/books/edit/'+ ${book.getIsbn()}">edit</a>
+        <a th:href="'/books/delete/'+ ${book.getIsbn()}">delete</a>
+
+      </li>
+
+    </ul>
+    <a href="/books/add">Add a Book</a></br>
+    </br>
+    <input type="submit" value="Submit">
+  </form>
+  <form method="get" action="/books/add">
+    <input type="submit" value="Add Book"></br>
+  </form>
+  <form method="get" action="/bookstores/add">
+    <input type="submit" value="Add book-store">
+  </form>
+  <form method="get" action="/reviews/add">
+    <input type="submit" value="Add reviews">
+  </form>
+  <form method="get" action="/author/add">
+    <input type="submit" value="Add authors">
+  </form>
+</main>
+</body>
+</html>

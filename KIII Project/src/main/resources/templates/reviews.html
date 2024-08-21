@@ -1,0 +1,43 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Books Homepage - Welcome to My Book Store</title>
+  <style type="text/css">
+    body {
+      width: 800px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Reviews</h1>
+</header>
+<main>
+  <h2>Reviews:</h2>
+  <!-- Display radio buttons for each book,
+          the value should be the isbn
+          and the displayed text should be Title: <bookTitle>, Genre:<genre>, Year: <year> -->
+  <ul th:each="review : ${reviews}">
+    <li th:text="
+        'Score: ' + ${review.getScore()} +
+        ', Description: ' + ${review.getDescription()} +
+        ', Book: ' + ${review.getBook()} +
+        ', timestamp' + ${review.getFormattedDateCreated()}">
+  </ul>
+  <form method="get" action="/reviews/add">
+    <input type="submit" value="Add review"></br>
+  </form>
+  <form th:action="@{/reviews/filtered}" method="get">
+    From: <input type="date" name="fromDate" pattern="yyyy-MM-dd">
+    To: <input type="date" name="toDate" pattern="yyyy-MM-dd">
+    <input type="submit" value="Filter">
+  </form>
+
+  <!--    <input type="radio" name="bookIsbn" value="1"> Book 1 <br/>-->
+  <!--    <input type="radio" name="bookIsbn" value="2"> Book 2<br/>-->
+  <!--    <input type="radio" name="bookIsbn" value="3"> Book 3 <br/>-->
+</main>
+</body>
+</html>

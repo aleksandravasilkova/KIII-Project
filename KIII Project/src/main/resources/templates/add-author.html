@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add author</title>
+</head>
+<body>
+<header>
+  <h1>Add author</h1>
+</header>
+<main>
+
+  <form th:action="@{/author/add}" th:method="POST">
+    <div>
+      Name: <input name="name"><br><br>
+      Surname: <input name="surname"><br><br>
+      <input type="datetime-local" name="dateOfBirth"/>
+      <br>
+      <input type="submit" value="Add author to list">
+    </div>
+  </form>
+</main>
+</body>
+</html>

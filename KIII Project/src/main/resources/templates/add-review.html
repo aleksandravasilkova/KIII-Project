@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add review</title>
+</head>
+<body>
+<header>
+  <h1>Add review</h1>
+</header>
+<main>
+
+  <form th:action="@{/reviews/add}" th:method="POST">
+    <div>
+      Score: <input name="score"><br><br>
+      Description: <input name="description"><br><br>
+      Book: <input name="bookIsbn"><br><br>
+      <input type="datetime-local" name="timestamp"/>
+      <br>
+      <input type="submit" value="Add new review">
+    </div>
+  </form>
+
+
+
+
+</main>
+</body>
+</html>

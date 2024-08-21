@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add a Book</title>
+</head>
+<body>
+<header>
+  <h1>Add a Book</h1>
+</header>
+<main>
+
+  <form th:action="@{/books/add}" th:method="POST">
+    <div>
+      <h2>Book details:</h2>
+
+      Book title: <input name="title"><br><br>
+      Book isbn: <textarea name="isbn"></textarea><br><br>
+      Genre: <input name="genre"><br><br>
+      Year: <input name="year">
+      <br>
+      <br>
+      <label>
+        Select book store:
+        <select name="id">
+          <option th:each="bookstore:${bookStores}">
+            <th:block th:text="${bookstore.getId()}"></th:block>
+          </option>
+        </select>
+      </label>
+      <input type="submit" value="Add new book">
+    </div>
+  </form>
+
+
+
+
+</main>
+</body>
+</html>

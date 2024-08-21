@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Books Homepage - Welcome to My Book Store</title>
+  <style type="text/css">
+    body {
+      width: 800px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Authors</h1>
+</header>
+<main>
+  <h2>Authors:</h2>
+  <!-- Display radio buttons for each book,
+          the value should be the isbn
+          and the displayed text should be Title: <bookTitle>, Genre:<genre>, Year: <year> -->
+  <ul th:each="author : ${authors}">
+    <li th:text="
+        'Name: ' + ${author.getName()} +
+        ', Surname: ' + ${author.getSurname()} +
+        ', Date of birth: ' + ${author.getFormattedBirth()}">
+  </ul>
+  <form method="get" action="/author/add">
+    <input type="submit" value="Add author to list"></br>
+  </form>
+  <!--    <input type="radio" name="bookIsbn" value="1"> Book 1 <br/>-->
+  <!--    <input type="radio" name="bookIsbn" value="2"> Book 2<br/>-->
+  <!--    <input type="radio" name="bookIsbn" value="3"> Book 3 <br/>-->
+</main>
+</body>
+</html>
