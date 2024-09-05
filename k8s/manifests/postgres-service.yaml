@@ -1,13 +1,12 @@
 apiVersion: v1
-kind: Pod
+kind: Service
 metadata:
-  name: postgres
+  name: postgres-service
   namespace: my-namespace
-  labels:
-    app: postgres
 spec:
-  containers:
-    - name: postgres
-      image: postgres:latest
-      ports:
-        - containerPort: 5432
+  ports:
+    - port: 5432
+      targetPort: 5432
+  selector:
+    app: postgres
+  type: ClusterIP
