@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: db-config
-  namespace: app-namespace
-data:
-  POSTGRES_DB: book-store
